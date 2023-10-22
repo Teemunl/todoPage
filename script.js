@@ -12,8 +12,20 @@ button.addEventListener("click", function() {
   var textarea = document.createElement("textarea");
   textarea.placeholder = "Write something...";
 
-  // Append the textarea to the post it note
+  // Create a new delete button element for the note
+  var deleteButton = document.createElement("span");
+  deleteButton.className = "delete";
+  deleteButton.textContent = "X";
+
+  // Add a click event listener to the delete button
+  deleteButton.addEventListener("click", function() {
+    // Remove the post it note from the document
+    postIt.remove();
+  });
+
+  // Append the textarea and the delete button to the post it note
   postIt.appendChild(textarea);
+  postIt.appendChild(deleteButton);
 
   // Append the post it note to the body
   document.body.appendChild(postIt);
