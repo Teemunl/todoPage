@@ -39,6 +39,9 @@ button.addEventListener("click", function() {
   postIt.style.top = y + "px";
   postIt.style.transform = "rotate(" + r + "deg)";
 
+  // Set the background-color of the post-it note to a random color
+  postIt.style.backgroundColor = getRandomColor();
+
   // Add event listeners for drag and drop functionality
   postIt.addEventListener("mousedown", startDrag);
   postIt.addEventListener("mousemove", moveDrag);
@@ -90,4 +93,16 @@ function moveDrag(e) {
 function stopDrag(e) {
   // Set the dragging flag to false
   dragging = false;
+}
+
+// Array of colors
+var colors = ["pink", "orange", "lightblue", "lime", "purple"];
+
+// Function to get a random color
+function getRandomColor() {
+  // Get a random index for the array
+  var index = Math.floor(Math.random() * colors.length);
+
+  // Return the color at that index
+  return colors[index];
 }
